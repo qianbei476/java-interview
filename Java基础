@@ -72,3 +72,19 @@ public class Demo {
    
    （3）操作少量数据用String、单线程字符串缓冲区大量数据StringBuilder、多线程字符串缓冲区大量数据StringBuffer
    
+6.Java基本数据类型
+
+Java一共有8种基本数据类型（原始数据类型）：     
+类型     存储要求                范围（包含）            默认值        包装类
+整       int 4字节（32位）      -231~ 231-1               0          Integer
+数       short 2字节（16位）    -215~215-1                0          Short
+类       long 8字节（64位）     -263~263-1                0          Long
+型       byte 1字节（8位）      -27~27-1                  0          Byte
+浮点     float 4字节（32位）    -3.4e+38 ~ 3.4e+38        0.0f       Float
+类型     double 8字节（64位）   -1.7e+308 ~ 1.7e+308      0          Double
+字符     char 2字节（16位）     u0000~uFFFF（‘’~‘？’）    ‘0’        Character （0~216-1（65535））  
+布尔     boolean 1/8字节（1位） true, false               FALSE      Boolean
+
+7.抽象类与接口区别
+
+   
