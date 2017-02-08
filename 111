@@ -1,0 +1,100 @@
+Java动态代理原理
+Java类加载器的原理
+
+集合类
+HashSet的add方法是如何实现的，如何去重
+	answer：
+	HashSet的底层是使用HashMap来实现的，调用add方法的时候，底层也是用HashMap的put方法来实现的。HashSet之所以可以去重，也是因为HashMap的put方法中，如果发现key已经存在了，会
+	覆盖key对应的值，但是对于HashSet来说，还是原来那个key。也就是说Key set并没有任何变动。
+	
+HashMap实现原理
+	answer：查看HashMap的put和get方法原理和HashMap扩容以及HashMap多线程下发生死循环的原因。
+	
+ArrayList是线程安全的吗
+	answer：线程不安全的ArrayList
+	
+Java NIO和 Java IO区别，优势
+
+线程和并发
+sleep方法和wait方法有什么区别
+	answer：
+	1.wait方法释放锁，sleep方法不释放锁
+	2.wait方法必须在同步代码块里，比如synchronize关键里，但是sleep方法没有限制
+	
+wait方法调用之后，到底发生了什么事情
+	answer：Object wait方法
+	
+什么是线程安全
+
+写一个发现死锁的Java代码，并描述一下如何避免死锁
+
+JVM
+垃圾回收算法有哪几种？各有什么特点
+
+什么时候触发young gc，什么时候出发full gc
+
+如果Java进程突然挂掉了，怎么查看挂掉的原因
+
+JVM是怎么调优的
+
+描述JVM内存模型
+
+mysql
+使用什么关键字来分析sql的性能
+
+建立索引有什么注意点
+
+什么是覆盖索引
+
+什么情况下，需要建立符合索引
+
+索引原理是什么，底层用什么数据结构
+
+应用的数据库是如何做容灾的
+
+如何做到动态增加业务字段，而代码无需改动
+
+行锁和表锁的区别
+
+mysql批量插入数据的时候，怎么优化
+
+分库处理，路由到分库的规则
+
+算法
+一致性hash算法的原理
+
+使用Java实现快速排序
+
+使用Java实现二分查找
+
+使用Java进行二叉树遍历（前中后序）
+
+红黑树原理
+
+HTTP
+如何用Java代码解析一个HTTP请求，描述一下实现思路
+HTTP1.0 HTTP1.1 HTTP2.0的区别
+
+linux
+shell用什么命令查看硬盘和内存的使用情况
+shell脚本用什么变量来接收参数
+
+Spring
+Spring IOC原理
+Spring加载bean生命周期
+	answer：Spring中的bean的生命周期，如果从细节上来讲是非常复杂的，从粗粒度上来讲就是：
+	1.调用构造方法创建对象
+	2.调用对象的set方法来设置属性值
+	3.可以使用Spring提供的一些接口，可以在bean set方法调用完后，做些处理工作或者注入一些自定义的代码实现
+	4.整个bean初始完后，所有的依赖对象注入后，如果想做一些初始化工作，可以用@PostConstruct等一些注解
+	5.销毁bean之前做的一些处理工作
+	6.销毁bean
+Spring AOP原理
+Spring使用了哪些设计模式
+cglib和动态代理有什么区别
+cglib和动态代理哪个效率高
+Spring bean的scope有哪几种
+
+网络
+TCP/IP三次握手过程
+TCP UDP
