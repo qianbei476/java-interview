@@ -24,4 +24,51 @@ public>protected>default>private
    （3）子类函数的访问修饰权限不能少于父类的。
    
    【重写只能存在继承关系中，重写方法只能重写父类的非私有方法，多态性】
+  
+4.关于使用内部类
+
+其实也就是一个类中还包含着另外一个类，如同一个人是由大脑、肢体、器官等身体结果组成，而内部类相当于其中的某个器官之一
+例如心脏：它也有自己的属性和行为（血液、跳动）
+
+class Out {
+    private int age = 12;
+     
+    class In {
+        private int age = 13;
+        public void print() {
+            int age = 14;
+            System.out.println("局部变量：" + age);//14
+            System.out.println("内部类变量：" + this.age);//13
+            System.out.println("外部类变量：" + Out.this.age);//12
+        }
+    }
+}
+ 
+public class Demo {
+    public static void main(String[] args) {
+        Out.In in = new Out().new In();
+        in.print();
+    }
+}
+
+（1）内部类在没有同名成员变量和局部变量的情况下，内部类会直接访问外部类的成员变量，而无需指定Out.this.属性名，否则，内部类中的局部变量会覆盖外部
+类的成员变量，而访问内部类本身的成员变量可用this.属性名，访问外部类的成员变量需要使用Out.this.属性名。
+（2）如果用static 将内部内静态化，那么内部类就只能访问外部类的静态成员变量，具有局限性
+（3）如果一个内部类只希望被外部类中的方法操作，那么可以使用private声明内部类
+
+5.String、StringBuffer、StringBuilder之间区别
+   
+   （1）三者在执行速度方面的比较：StringBuilder >  StringBuffer  >  String
+    String str = “This is only a”（str1） + “ simple”（str2） + “ test”（str3）;
+    StringBuffer builder = new StringBuilder(“This is only a”).append(“ simple”).append(“ test”);
+   
+   【每当用String操作字符串时，实际上是在不断的创建新的对象，而原来的对象就会变为垃圾被ＧＣ回收掉、而StringBuffer与StringBuilder就不一样了，
+   他们是字符串变量，是可改变的对象，每当我们用它们对字符串做操作时，实际上是在一个对象上操作的】
+   
+   （2）StringBuffer是线程安全的，StringBuilder是线程非安全的
+   
+   【当我们在字符串缓冲去被多个线程使用是，JVM不能保证StringBuilder的操作是安全的，虽然他的速度最快，但是可以保证StringBuffer是可以正确操作的。
+   当然大多数情况下就是我们是在单线程下进行的操作，所以大多数情况下是建议用StringBuilder而不用StringBuffer的，就是速度的原因。】
+   
+   （3）操作少量数据用String、单线程字符串缓冲区大量数据StringBuilder、多线程字符串缓冲区大量数据StringBuffer
    
