@@ -1,0 +1,56 @@
+1.单列（Collection）
+  List(有序、可重复):
+        ArrayList: 数组结构，查询快，增删慢，线程不安全，效率高
+        Vector:    数组结构，查询快，增删慢，线程安全，效率低
+        LinkedList:链表结构，查询慢，增删快，线程不安全，效率高
+  Set（无序、唯一）:
+        HashSet:哈希表结构
+        主要方法:hashCode()和equals()
+        执行顺序：先判断hashCode()是否相同，在判断equals()，再决定是否添加
+        
+        【LinkedHashSet:链表和哈希表结构，有序，且元素唯一】
+        
+        TreeSet:红黑树结构（自平衡的二叉树）
+        
+2.双列（Map）
+  【Map集合的数据结构仅仅是键，与值无关，存储的是键值对应元素，键唯一，值可重复】
+  
+  HashMap:哈希表结构，线程不安全，效率高
+  
+  【LinkedHashMap:链表和哈希表结构，键有序，且键唯一】
+  
+  Hashtable:哈希表结构，线程安全，效率低
+  
+  TreeMap:红黑树结构（自平衡二叉树）
+  
+  3.集合选用原则
+  
+    键值:Map
+      排序:TreeMap
+      不排序:HashMap
+      不知道:HashMap
+    
+    非键值:Collection
+      唯一：Set
+        排序:TreeSet
+        不排序:HashSet
+        不知道:HashSet
+        
+      不唯一:List
+        要安全:Vector
+        不要安全:ArrayList或者LinkedList
+            增删多:LinkedList
+            查询多:ArrayList
+            不知道:ArrayList
+        不知道:ArrayList
+        
+4.常用方法:
+  Collection:
+      add(),remove(),contains(),iterator(),size()
+      
+      遍历:for，迭代器
+  Map:
+      put(),remove(),containskey(),containsValue(),keySet(),get(),value(),entrySet(),size()
+      
+      遍历:根据键找值，根据键值对对象找键和值
+    
